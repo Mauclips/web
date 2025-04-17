@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de MauClipsStudio - Edición de videos profesionales.">
+  <title>MauClipsStudio - Portafolio</title>
+  <link rel="icon" href="logo.ico.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sección de Inicio -->
+  <header class="hero">
+    <div class="container">
+      <img src="logo.png" alt="Logo MauClipsStudio" class="logo">
+      <h1>MauClipsStudio</h1>
+      <!-- Frase dinámica -->
+      <p id="frase-dinamica" class="slogan">Bueno, vamos a editar... <span class="mate-icon">🧉</span></p>
+      <!-- Botón personalizado -->
+      <a href="#portafolio" class="btn btn-mate">Explora mis trabajos</a>
+    </div>
+  </header>
+
+  <!-- Sección Sobre mí -->
+  <section id="sobre-mi" class="sobre-mi">
+    <div class="container">
+      <h2>Sobre mí</h2>
+      <p>La edición de video es como el mate: lleva tiempo, dedicación y pasión para hacerlo perfecto.</p>
+    </div>
+  </section>
+  
+  <!-- Sección Portafolio -->
+  <section id="portafolio" class="portafolio">
+    <div class="container">
+      <h2>Mis Trabajos</h2>
+      <div class="galeria">
+        <!-- Cada tarjeta representa un video -->
+        <div class="tarjeta">
+          <video controls>
+            <source src="01.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+          </video>
+          <h3>Proyecto 1</h3>
+          <p>Edición para redes sociales.</p>
+        </div>
+        <div class="tarjeta">
+          <video controls>
+            <source src="Portafolio 2.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+          </video>
+          <h3>Proyecto 2</h3>
+          <p>Edición para redes sociales.</p>
+        </div>
+      </div>
+    </div> 
+  </section>
+
+  <!-- Sección Contacto con Formspree -->
+  <section id="contacto" class="contacto">
+    <div class="container">
+      <h2>¿Listo para crear algo increíble?</h2>
+      <p class="subtitulo-contacto">Déjame tus datos y hablamos sobre tu proyecto</p>
+      
+      <!-- FORMSPREE: Reemplaza "xqkreqkl" con tu ID real -->
+      <form action="https://formspree.io/f/mgvajowk" method="POST" id="formulario-contacto" class="formulario">
+        <!-- Campo anti-spam (oculto) -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <!-- Redirección después de enviar (opcional) -->
+        <input type="hidden" name="_next" value="https://tusuario.github.io/gracias.html">
+        
+        <div class="grupo-formulario">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        
+        <div class="grupo-formulario">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="grupo-formulario">
+          <label for="tipo-proyecto">Tipo de proyecto</label>
+          <select id="tipo-proyecto" name="tipo-proyecto">
+            <option value="">Selecciona una opción</option>
+            <option value="redes">Video para redes sociales</option>
+            <option value="promocional">Video promocional</option>
+            <option value="evento">Edición de evento</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        
+        <div class="grupo-formulario">
+          <label for="mensaje">Detalles del proyecto</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        
+        <div class="grupo-formulario">
+          <label class="checkbox-container">
+            <input type="checkbox" name="privacidad" required>
+            <span class="checkmark"></span>
+            Acepto la política de privacidad
+          </label>
+        </div>
+        
+        <button type="submit" class="btn-mate">
+          <span class="icono-mate">🧉</span> Enviar proyecto
+        </button>
+      </form>
+      
+      
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MauClipsStudio. Todos los derechos reservados.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/mauclips_studio/">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Frase dinámica
+    const frases = [
+      "Bueno, vamos a editar... 🧉",
+      "La creatividad se sirve como un buen mate.",
+      "Edición con pasión, como el mate con amigos.",
+      "Cada corte es como una ronda de mate: único."
+    ];
+
+    let index = 0;
+    function cambiarFrase() {
+      const frase = document.getElementById("frase-dinamica");
+      frase.textContent = frases[index];
+      index = (index + 1) % frases.length;
+    }
+    setInterval(cambiarFrase, 3000);
+
+    // Feedback al enviar formulario
+    document.getElementById('formulario-contacto').addEventListener('submit', function(e) {
+      const boton = this.querySelector('button[type="submit"]');
+      boton.innerHTML = '<span class="icono-mate">🧉</span> Enviando...';
+      boton.disabled = true;
+    });
+  </script>
+</body>
+</html>
